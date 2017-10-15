@@ -13,3 +13,24 @@
 console.info(
   'Service worker disabled for development, will be generated at build time.'
 );
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open('offline-v1')
+      .then(cache => cache.addAll([
+        '/offline.html'
+      ]))
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
+      .catch(() => {
+        if (event.request.mode == 'navigate') {
+          return caches.match('/offline.html');
+        }
+      })
+  );
+});

@@ -1,0 +1,69 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="my-post-data.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="my-post">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .post-container {
+
+      }
+      .post-header {
+        display: flex;
+      }
+      .post-header .icon {
+
+      }
+    </style>
+
+    <app-route
+        route="[[subroute]]"
+        pattern="/:post"
+        data="{{routeData}}">
+    </app-route>
+
+    <my-post-data id="post-data" post-name="[[routeData.post]]" post="{{post}}"></my-post-data>
+    
+    <div class="panel">
+      <div class="header">
+        <h1><iron-icon icon="[[post.icon]]"></iron-icon>[[post.title]]</h1>
+      </div>
+      <div class="content">
+        [[post.content]]
+      </div>
+    </div>
+    
+  </template>
+
+  <script>
+    class MyPost extends Polymer.Element {
+      static get is() { return 'my-post'; }
+      static get properties() {
+        return {
+          route: Object,
+          routeData: Object,
+          post: Object
+        };
+      }
+    }
+
+    window.customElements.define(MyPost.is, MyPost);
+  </script>
+</dom-module>

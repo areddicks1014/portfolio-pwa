@@ -15,6 +15,7 @@ module.exports = {
     '/index.html',
     '/manifest.json',
     '/bower_components/webcomponentsjs/*',
+    '/data/*'
   ],
   navigateFallback: 'index.html',
 };

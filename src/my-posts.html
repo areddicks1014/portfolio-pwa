@@ -1,0 +1,56 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="post-list-item.html">
+
+<dom-module id="my-posts">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .post-list-container {
+
+      }
+    </style>
+
+    <iron-ajax id="ajax-post" url="../data/posts.json" handle-as="json" last-response="{{ajaxResponsePost}}" auto></iron-ajax>
+
+    <div class="shd-header">
+      <h1>Posts</h1>
+    </div>
+    <div class="post-list-container">
+      <template is="dom-repeat" items="{{ajaxResponsePost}}" as="post">
+          <a href="[[rootPath]]post/[[post.name]]">
+            <post-list-item icon="[[post.icon]]" date="[[post.date]]">[[post.title]]</post-list-item>
+          </a>
+      </template>
+    </div>
+  </template>
+
+  <script>
+    class MyPosts extends Polymer.Element {
+      static get is() { return 'my-posts'; }
+      static get properties() {
+        return {
+          // This shouldn't be neccessary, but the Analyzer isn't picking up
+          // Polymer.Element#rootPath
+          rootPath: String,
+        };
+      }
+    }
+
+    window.customElements.define(MyPosts.is, MyPosts);
+  </script>
+</dom-module>

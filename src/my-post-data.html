@@ -1,0 +1,85 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="my-post-data">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+
+    <iron-ajax id="ajax-post" url="../data/posts.json" handle-as="json" last-response="{{ajaxResponsePost}}" auto></iron-ajax>
+    
+  </template>
+
+  <script>
+    class MyPostData extends Polymer.Element {
+      static get is() { return 'my-post-data'; }
+      static get properties() {
+        return {
+          postName: String,
+          posts: {
+            type: Array,
+            value: '_getPostArray()',
+            readOnly: true,
+            notify: true
+          },
+          post: {
+            type: Object,
+            computed: '_computePost(postName)',
+            notify: true
+          },
+          failure: {
+            type: Boolean,
+            notify: true,
+            readOnly: true
+          }
+        };
+      }
+      _getPostArray() {
+        var xmlhttp = new XMLHttpRequest();
+        var url = "../data/posts.json";
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                return myArr;
+            }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+      }
+      _getPostObject(postName) {
+        for (let i = 0, p; p = this.posts[i]; ++i) {
+          if (p.name === postName) {
+            return p;
+          }
+        }
+      }
+      _computePost(postName) {
+        // Fetch the items of the category. Note that the fetch is asynchronous,
+        // which means `category.items` may not be set initially (but that path
+        // will be notified when the fetch completes).
+        let postObj = this._getPostObject(postName);
+        return postObj;
+      }
+    }
+
+    window.customElements.define(MyPostData.is, MyPostData);
+  </script>
+</dom-module>

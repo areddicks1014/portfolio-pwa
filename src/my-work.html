@@ -9,6 +9,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="my-icons.html">
+<link rel="import" href="my-work-grid-item.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-work">
@@ -16,17 +20,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles">
       :host {
         display: block;
-
         padding: 10px;
+      }
+      .work-grid {
+        display: flex;
+        flex-wrap: wrap;
       }
     </style>
 
-    <div class="card">
-      <div class="circle">3</div>
-      <h1>View Three</h1>
-      <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+    <!-- <div class="shd-header">
+      <h1><iron-icon icon="mdi:account-circle"></iron-icon> Personal Projects</h1>
+    </div> -->
+     <div class="shd-header">
+      <h1><iron-icon icon="mdi:hexagon-multiple"></iron-icon> All Work</h1>
+    </div> 
+    <iron-ajax id="ajax-work" url="../data/work.json" handle-as="json" last-response="{{ajaxResponseWork}}" auto></iron-ajax>
+    <!-- <iron-list grid items="{{ajaxResponseWork}}" as="work"> -->
+    <div class="work-grid">
+      <template is="dom-repeat" items="{{ajaxResponseWork}}" as="work">
+        <a href="[[work.link]]" target="_blank">
+          <my-work-grid-item 
+            name="[[work.name]]" 
+            favicon="[[work.favicon]]" 
+            platform="[[work.platform]]" 
+            screenshot="[[work.screenshot]]">
+          </my-work-grid-item>
+        </a>
+      </template>
     </div>
+    <!-- </iron-list> -->
+
+    <!-- <div class="shd-header">
+      <h1><iron-icon icon="mdi:polymer"></iron-icon> Polymer</h1>
+    </div> -->
+
+    <!-- <div class="shd-header">
+      <h1><iron-icon icon="mdi:wordpress"></iron-icon> WordPress</h1>
+    </div> -->
+
   </template>
 
   <script>

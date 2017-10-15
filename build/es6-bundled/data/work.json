@@ -1,0 +1,16 @@
+[
+    {
+        "name": "ISAC v1",
+        "favicon": "../data/images/ISAC_icon_w.png",
+        "platform": "mdi:watch",
+        "screenshot": "../data/images/isac_basalt_ss_1.png",
+        "link": "https://apps.getpebble.com/en_US/application/57ce4edfa789e1c21600003b"
+    },
+    {
+        "name": "The Patio Place",
+        "favicon": "../data/images/patio-place-favicon.ico",
+        "platform": "mdi:polymer",
+        "screenshot": "../data/images/patio-place-ss.png",
+        "link": "https://the-patio-place.firebaseapp.com/"
+    }
+]

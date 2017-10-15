@@ -34,6 +34,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
         font-weight: italic;
       }
+
+      @-webkit-keyframes pulse-hover {
+        0% {background-color: var(--app-primary-color);}
+        25% {background-color: rgba(0,174,234, 0.4);}
+        100% {background-color: rgba(0,174,234, 0.4);}
+      }
+      @keyframes pulse-hover {
+        0% {background-color: var(--app-primary-color);}
+        25% {background-color: rgba(0,174,234, 0.4);}
+        100% {background-color: rgba(0,174,234, 0.4);}
+      }
+
       .card {
         margin: 24px;
         padding: 16px;
@@ -41,6 +53,103 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         border-radius: 5px;
         background-color: var(--app-dialog-color);
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+
+      .blur::before {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        filter: blur(5px);
+      }
+
+      .panel {
+        margin: 24px;
+        background-color: var(--ui-background-color);
+        border-top: #ccc solid 1px;
+        border-bottom: #ccc solid 1px;
+      }
+      .panel .header {
+        background-color: var(--ui-header-color);
+        border-bottom: #ccc solid 1px;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.33), 3px 3px 0 rgba(255, 255, 255, 0.11);
+        color: var(--app-text-primary-color);
+        font-weight: bold;
+        padding: 0 16px;
+        margin: 0;
+      }
+      .panel .primary {
+        color: var(--app-primary-color);
+        font-weight: bold;
+      }
+      .panel .header h1 {
+        margin: 0;
+      }
+      .panel .content {
+        color: var(--app-text-primary-color);
+        padding: 16px;
+      }
+      .shd-header {
+        border-bottom: #ccc solid 1px;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.33), 3px 3px 0 rgba(255, 255, 255, 0.11);
+        color: var(--app-text-primary-color);
+        font-weight: bold;
+        padding: 0 16px;
+        margin: 8px 24px;
+      }
+      .shd-header h1 {
+        margin: 0;
+      }
+      .shd-header iron-icon {
+        height: 35px;
+        width: 35px;
+      }
+      .shd-button {
+        margin: 8px;
+        padding: 8px;
+        color: #fff;
+        font-weight: bold;
+        background-color: var(--ui-background-color);
+        text-decoration: none;
+      }
+      .shd-button:hover {
+        background-color: rgba(0,174,234, 0.4);
+        -webkit-animation: pulse-hover 1s ease-out;
+        animation: pulse-hover 1s ease-out;
+      }
+      .shd-button:active {
+        background-color: rgba(0,174,234, 0.6);
+      }
+      .shd-icon-button {
+        margin: 8px;
+        padding: 8px;
+        color: #fff;
+        font-weight: bold;
+        background-color: var(--ui-header-color);
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        -webkit-transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+      }
+      .shd-icon-button iron-icon {
+        transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        -webkit-transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+      }
+      .shd-icon-button:hover {
+        background-color: rgba(0,174,234, 0.4);
+        transform: translate3d(-3px, -3px, 3px);
+        -webkit-animation: pulse-hover 1s ease-out;
+        animation: pulse-hover 1s ease-out;
+      }
+      .shd-icon-button:hover iron-icon {
+        /* transform: scale(1.1, 1.1); */
+        transform: translate3d(-3px, -3px, 3px);
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.33), 3px 3px 0 rgba(255, 255, 255, 0.11);
+        -webkit-filter: drop-shadow( 1px 1px 0 var(--app-text-drop-shadow), 3px 3px 0 var(--app-text-ghost-shadow) );
+        filter: drop-shadow( 1px 1px 0 var(--app-text-drop-shadow), 3px 3px 0 var(--app-text-ghost-shadow) );
+      }
+      .shd-icon-button:active {
+        background-color: rgba(0,174,234, 0.6);
+      }
+      .icon-list {
+        margin-left: 16px;
       }
 
       .circle {
