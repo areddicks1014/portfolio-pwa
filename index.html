@@ -65,6 +65,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </script>
 
+    <script>
+      (function() {
+        'use strict';
+
+        if (location.hostname === 'localhost') return;
+
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+        ga('create', 'UA-108096915-1', 'auto');
+
+        window.addEventListener('app-metadata', function(e) {
+          ga('set', 'page', location.pathname);
+          ga('send', 'pageview');
+        });
+
+        window.addEventListener('error', function(e) {
+          ga('send', 'exception', {
+            'exDescription': e.message,
+            'exFatal': false
+          });
+        });
+        window.addEventListener('WebComponentsReady', function(e) {
+          if (window.performance) {
+            ga('send', 'timing', 'JS Dependencies', 'WebComponentsReady', Math.round(performance.now()));
+          }
+        });
+      })();
+    </script>
+
     <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
     <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
@@ -98,5 +127,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Please enable JavaScript to view this website.
     </noscript>
     <!-- Built with love using Polymer Starter Kit -->
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
   </body>
 </html>
