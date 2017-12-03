@@ -131,7 +131,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-shadow: -1px 1px 0 var(--app-text-drop-shadow), -3px 3px 0 var(--app-text-ghost-shadow);
         transform: translate3d(3px, -3px, 3px);
       }
-      .drawer-list a iron-icon:hover { 
+      .drawer-list a:hover iron-icon { 
         -webkit-filter: drop-shadow( 1px 1px 0 var(--app-text-drop-shadow), 3px 3px 0 var(--app-text-ghost-shadow) );
         filter: drop-shadow( 1px 1px 0 var(--app-text-drop-shadow), 3px 3px 0 var(--app-text-ghost-shadow) );
         /* text-shadow: 1px 1px 0 var(--app-text-drop-shadow), 3px 3px 0 var(--app-text-ghost-shadow); */
@@ -146,6 +146,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         -webkit-animation: pulse 1.5s ease-out;
         animation: pulse 1.5s ease-out;
       }
+
+      .header-icon {
+        height: 24px;
+        width: 24px;
+      }
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -159,6 +164,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Drawer content -->
       <app-drawer id="drawer" slot="drawer" swipe-open>
         <app-toolbar><h4 class="desktop-title"><iron-icon icon="mdi:hexagon-outline"></iron-icon>&nbsp;AREDDICKS1014</h4></app-toolbar>
+        <!-- <app-toolbar><h4 class="desktop-title"><img class="header-icon" src="../images/hex-icon-24x24.png">&nbsp;AREDDICKS1014</h4></app-toolbar> -->
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="home" href="home"><iron-icon icon="mdi:home"></iron-icon>&nbsp;Home</a>
           <!-- <a name="posts" href="posts"><iron-icon icon="mdi:format-list-bulleted-type"></iron-icon>&nbsp;Posts</a> -->

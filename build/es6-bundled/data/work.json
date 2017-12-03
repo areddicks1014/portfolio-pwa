@@ -10,7 +10,7 @@
         "name": "The Patio Place",
         "favicon": "../data/images/patio-place-favicon.ico",
         "platform": "mdi:polymer",
-        "screenshot": "../data/images/patio-place-ss.png",
+        "screenshot": "../data/images/patio-place-ss-thumb.svg",
         "link": "https://the-patio-place.firebaseapp.com/"
     }
 ]
