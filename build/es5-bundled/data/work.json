@@ -7,10 +7,10 @@
         "link": "https://apps.getpebble.com/en_US/application/57ce4edfa789e1c21600003b"
     },
     {
-        "name": "The Patio Place",
-        "favicon": "../data/images/patio-place-favicon.ico",
+        "name": "Patios-N-Stuff (Demo)",
+        "favicon": "../data/images/patios-n-stuff-favicon.png",
         "platform": "mdi:polymer",
-        "screenshot": "../data/images/patio-place-ss-thumb.svg",
-        "link": "https://the-patio-place.firebaseapp.com/"
+        "screenshot": "../data/images/patios-n-stuff-ss-thumb.svg",
+        "link": "https://patios-n-stuff.firebaseapp.com/"
     }
 ]

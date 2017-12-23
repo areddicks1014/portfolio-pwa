@@ -8,7 +8,7 @@
     },
     {
         "name": "Patios-N-Stuff (Demo)",
-        "favicon": "../data/images/patios-n-stuff-favicon.ico",
+        "favicon": "../data/images/patios-n-stuff-favicon.png",
         "platform": "mdi:polymer",
         "screenshot": "../data/images/patios-n-stuff-ss-thumb.svg",
         "link": "https://patios-n-stuff.firebaseapp.com/"
