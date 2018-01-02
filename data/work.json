@@ -1,6 +1,6 @@
 [
     {
-        "name": "ISAC v1",
+        "name": "ISAC v1 (Pebble)",
         "favicon": "../data/images/ISAC_icon_w.png",
         "platform": "mdi:watch",
         "screenshot": "../data/images/isac_basalt_ss_1.png",
