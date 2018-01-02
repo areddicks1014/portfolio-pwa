@@ -12,5 +12,12 @@
         "platform": "mdi:polymer",
         "screenshot": "../data/images/patios-n-stuff-ss-thumb.svg",
         "link": "https://patios-n-stuff.firebaseapp.com/"
+    },
+    {
+        "name": "Unhelpful Thinking Habits",
+        "favicon": "../data/images/unhelpful-thinking-favicon.png",
+        "platform": "mdi:polymer",
+        "screenshot": "../data/images/unhelpful-thinking-ss-thumb.svg",
+        "link": "https://unhelpful-thinking.firebaseapp.com/"
     }
 ]
