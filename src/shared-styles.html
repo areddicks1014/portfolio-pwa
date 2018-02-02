@@ -107,16 +107,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
         background-color: var(--ui-header-color);
         text-decoration: none;
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.33),
+          6px 6px 0 rgba(255, 255, 255, 0.11);
         transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         -webkit-transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
       }
       .shd-icon-button iron-icon {
-        transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-        -webkit-transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        -webkit-filter: drop-shadow(2px 2px 1px var(--app-text-drop-shadow)) drop-shadow(5px 5px 0 var(--app-text-ghost-shadow));
+        filter: drop-shadow(2px 2px 1px var(--app-text-drop-shadow)) drop-shadow(5px 5px 0 var(--app-text-ghost-shadow));
+        transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        -webkit-transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
       }
       .shd-icon-button:hover {
         background-color: rgba(0,174,234, 0.4);
         transform: translate3d(-3px, -3px, 3px);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.33),
+          4px 4px 0 rgba(255, 255, 255, 0.11);
         -webkit-animation: pulse-hover 1s ease-out;
         animation: pulse-hover 1s ease-out;
       }
