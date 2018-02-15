@@ -41,7 +41,7 @@
       },
       "bundle": true,
       "addServiceWorker": true,
-      "addPushManifest": true,
+      "addPushManifest": false,
       "preset": "es5-bundled"
     },
     {
@@ -61,7 +61,7 @@
       },
       "bundle": true,
       "addServiceWorker": true,
-      "addPushManifest": true,
+      "addPushManifest": false,
       "preset": "es6-bundled"
     }
   ],
