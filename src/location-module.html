@@ -35,7 +35,7 @@
       <h4 class="heading">Location</h4>
       <p>Russellville, AR</p>
       <h4 class="heading">Time Coding</h4>
-      <p>Unknown</p>
+      <p>[[timeCoding]]</p>
     </div>
 
   </template>
@@ -62,9 +62,35 @@
        */
       static get properties() {
         return {
-          
+          timeCoding: {
+            type: String,
+            computed: '_timeSince(2011, 07, 11)'
+          }
         };
       }
+      _timeSince() {
+        var date = new Date('July 07, 2011');
+        var seconds = Math.floor((new Date() - date) / 1000);
+        var intervalType;
+
+        var interval = Math.floor(seconds / 31536000);
+        if (interval >= 1) {
+          intervalType = 'year';
+        } else {
+          interval = Math.floor(seconds / 2592000);
+          if (interval >= 1) {
+            intervalType = 'month';
+          } else {
+            // do nothing
+          }
+        }
+
+        if (interval > 1 || interval === 0) {
+          intervalType += 's';
+        }
+
+        return interval + ' ' + intervalType;
+    }
     }
 
     window.customElements.define(LocationModule.is, LocationModule);
