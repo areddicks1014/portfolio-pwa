@@ -120,6 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-decoration: none;
         color: var(--app-text-primary-color);
         background-color: var(--ui-header-color);
+        text-shadow: -1px 1px 0 var(--app-text-drop-shadow), -3px 3px 0 var(--app-text-ghost-shadow);
         line-height: 40px;
         transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         -webkit-transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -127,6 +128,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .drawer-list a iron-icon {
         transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
         -webkit-transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        -webkit-filter: drop-shadow(-1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(-3px 3px 0 var(--app-text-ghost-shadow));
+        filter: drop-shadow(-1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(-3px 3px 0 var(--app-text-ghost-shadow));
       }
       .drawer-list a:hover {
         color: var(--app-text-primary-color);
@@ -135,25 +138,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-shadow: -1px 1px 0 var(--app-text-drop-shadow), -3px 3px 0 var(--app-text-ghost-shadow);
         transform: translate3d(3px, -3px, 3px);
       }
-      .drawer-list a:hover iron-icon { 
-        /* -webkit-filter: drop-shadow(-1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(-3px 3px 0 var(--app-text-ghost-shadow));
-        filter: drop-shadow(-1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(-3px 3px 0 var(--app-text-ghost-shadow)); */
-      }
       .drawer-list a.iron-selected {
         /*color: #fff;*/
         color: var(--app-text-primary-color);
         background-color: var(--app-primary-color);
         font-weight: bold;
-        text-shadow: -1px 1px 0 var(--app-text-drop-shadow), -3px 3px 0 var(--app-text-ghost-shadow);
+        text-shadow: 0px 0px 0 var(--app-text-drop-shadow), 0px 0px 0 var(--app-text-ghost-shadow);
         transform: translate3d(3px, -3px, 3px);
         -webkit-animation: pulse 1.5s ease-out;
         animation: pulse 1.5s ease-out;
       }
       .drawer-list a.iron-selected iron-icon { 
-        /* -webkit-filter: drop-shadow(-1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(-3px 3px 0 var(--app-text-ghost-shadow));
-        filter: drop-shadow(-1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(-3px 3px 0 var(--app-text-ghost-shadow)); */
+        -webkit-filter: drop-shadow(0px 0px 0 var(--app-text-drop-shadow)) drop-shadow(0px 0px 0 var(--app-text-ghost-shadow));
+        filter: drop-shadow(0px 0px 0 var(--app-text-drop-shadow)) drop-shadow(0px 0px 0 var(--app-text-ghost-shadow));
       }
-
       .header-icon {
         height: 24px;
         width: 24px;
@@ -174,6 +172,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <!-- <app-toolbar><h4 class="desktop-title"><img class="header-icon" src="../images/hex-icon-24x24.png">&nbsp;AREDDICKS1014</h4></app-toolbar> -->
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="home" href="home"><iron-icon icon="mdi:home"></iron-icon>&nbsp;Home</a>
+          <!-- Put News section here -->
           <!-- <a name="posts" href="posts"><iron-icon icon="mdi:format-list-bulleted-type"></iron-icon>&nbsp;Posts</a> -->
           <a name="resume" href="resume"><iron-icon icon="mdi:file-document-box"></iron-icon>&nbsp;Resume</a>
           <a name="work" href="work"><iron-icon icon="mdi:briefcase"></iron-icon>&nbsp;My Work</a>

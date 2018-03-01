@@ -1,0 +1,64 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="my-icons.html">
+<link rel="import" href="grid-item-wide.html">
+
+<dom-module id="equipment-module">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block
+      }
+      .container {
+        width: 350px;
+      }
+      .heading {
+        color: var(--app-text-primary-color);
+        text-transform: uppercase;
+        text-shadow: 3px 3px 0 var(--app-text-ghost-shadow);
+        margin-left: 8px;
+        margin-bottom: 4px;
+      }
+    </style>
+
+    <div class="container">
+      <h4 class="heading">Equipment</h4>
+      <div class="skill-grid">
+        <grid-item-wide icon="mdi:laptop" primary="ASUS X53S" secondary="Laptop"></grid-item-wide>
+        <grid-item-wide icon="mdi:cellphone" primary="Nexus 6P" secondary="Phone"></grid-item-wide>
+        <grid-item-wide icon="mdi:watch" primary="Pebble Time Steel" secondary="Watch"></grid-item-wide>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    /**
+     * `equipment-module` Description
+     *
+     * @summary ShortDescription.
+     * @customElement
+     * @polymer
+     * @extends {Polymer.Element}
+     */
+    class EquipmentModule extends Polymer.Element {
+      /**
+       * String providing the tag name to register the element under.
+       */
+      static get is() {
+        return 'equipment-module';
+      }
+
+      /**
+       * Object describing property-related metadata used by Polymer features
+       */
+      static get properties() {
+        return {
+          
+        };
+      }
+    }
+
+    window.customElements.define(EquipmentModule.is, EquipmentModule);
+  </script>
+</dom-module>

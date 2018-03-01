@@ -1,0 +1,70 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="watchface-module">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block
+      }
+      .container {
+        width: 300px;
+      }
+      .heading {
+        color: var(--app-text-primary-color);
+        text-transform: uppercase;
+        text-shadow: 3px 3px 0 var(--app-text-ghost-shadow);
+        margin-left: 8px;
+        margin-bottom: 4px;
+      }
+      .wf {
+        height: 75px;
+        width: 75px;
+      }
+      p {
+        color: var(--app-text-primary-color);
+        text-shadow: 3px 3px 0 var(--app-text-ghost-shadow);
+        margin-left: 8px;
+      }
+    </style>
+
+    <div class="container">
+      <h4 class="heading">Watchface</h4>
+      <div class="shd-icon-button wf"><iron-image class="wf" src="../data/images/isac_basalt_ss_1.png" sizing="contain"></iron-image></div>
+      <p>ISAC v1</p>
+    </div>
+
+  </template>
+
+  <script>
+    /**
+     * `watchface-module` Description
+     *
+     * @summary ShortDescription.
+     * @customElement
+     * @polymer
+     * @extends {Polymer.Element}
+     */
+    class WatchfaceModule extends Polymer.Element {
+      /**
+       * String providing the tag name to register the element under.
+       */
+      static get is() {
+        return 'watchface-module';
+      }
+
+      /**
+       * Object describing property-related metadata used by Polymer features
+       */
+      static get properties() {
+        return {
+          
+        };
+      }
+    }
+
+    window.customElements.define(WatchfaceModule.is, WatchfaceModule);
+  </script>
+</dom-module>

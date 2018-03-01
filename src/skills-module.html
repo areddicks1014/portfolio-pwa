@@ -1,0 +1,77 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="skills-module">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block
+      }
+      .container {
+        width: 300px;
+      }
+      .heading {
+        color: var(--app-text-primary-color);
+        text-transform: uppercase;
+        text-shadow: 3px 3px 0 var(--app-text-ghost-shadow);
+        margin-left: 8px;
+        margin-bottom: 4px;
+      }
+      .skill-grid {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+      }
+      .skill-icon {
+        height: 56px;
+        width: 56px;
+      }
+      .middle {
+        flex: auto;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+
+    <div class="container">
+      <h4 class="heading">Skill Set</h4>
+      <div class="skill-grid">
+        <div class="shd-icon-button"><iron-icon class="skill-icon" icon="mdi:language-html5"></iron-icon></div>
+        <div class="shd-icon-button middle"><iron-icon class="skill-icon" icon="mdi:language-javascript"></iron-icon></div>
+        <div class="shd-icon-button"><iron-icon class="skill-icon" icon="mdi:language-css3"></iron-icon></div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    /**
+     * `skills-module` Description
+     *
+     * @summary ShortDescription.
+     * @customElement
+     * @polymer
+     * @extends {Polymer.Element}
+     */
+    class SkillsModule extends Polymer.Element {
+      /**
+       * String providing the tag name to register the element under.
+       */
+      static get is() {
+        return 'skills-module';
+      }
+
+      /**
+       * Object describing property-related metadata used by Polymer features
+       */
+      static get properties() {
+        return {
+          
+        };
+      }
+    }
+
+    window.customElements.define(SkillsModule.is, SkillsModule);
+  </script>
+</dom-module>

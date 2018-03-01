@@ -1,0 +1,72 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="location-module">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block
+      }
+      .container {
+        width: 300px;
+      }
+      .heading {
+        color: var(--app-text-primary-color);
+        text-transform: uppercase;
+        text-shadow: 3px 3px 0 var(--app-text-ghost-shadow);
+        margin-left: 8px;
+        margin-bottom: 4px;
+      }
+      .wf {
+        height: 75px;
+        width: 75px;
+      }
+      p {
+        color: var(--app-text-primary-color);
+        text-shadow: 3px 3px 0 var(--app-text-ghost-shadow);
+        margin-left: 8px;
+        margin-top: 0;
+      }
+    </style>
+
+    <div class="container">
+      <h4 class="heading">Location</h4>
+      <p>Russellville, AR</p>
+      <h4 class="heading">Time Coding</h4>
+      <p>Unknown</p>
+    </div>
+
+  </template>
+
+  <script>
+    /**
+     * `location-module` Description
+     *
+     * @summary ShortDescription.
+     * @customElement
+     * @polymer
+     * @extends {Polymer.Element}
+     */
+    class LocationModule extends Polymer.Element {
+      /**
+       * String providing the tag name to register the element under.
+       */
+      static get is() {
+        return 'location-module';
+      }
+
+      /**
+       * Object describing property-related metadata used by Polymer features
+       */
+      static get properties() {
+        return {
+          
+        };
+      }
+    }
+
+    window.customElements.define(LocationModule.is, LocationModule);
+  </script>
+</dom-module>

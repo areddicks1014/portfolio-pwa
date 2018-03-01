@@ -13,33 +13,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="my-icons.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="my-work-grid-item">
+<dom-module id="grid-item-wide">
   <template>
     <style include="shared-styles">
       :host {
         display: block;
         margin: 8px;
-        --bg-color: var(--ui-header-color);
       }
       .container {
         position: relative;
         display: flex;
-        height: 125px;
+        height: 75px;
         max-width: 400px;
         color: #fff;
         font-weight: bold;
-        background-color: var(--bg-color);
         text-decoration: none;
-        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.33),
-          6px 6px 0 rgba(255, 255, 255, 0.11);
         transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         -webkit-transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
       }
       .container:hover {
         background-color: rgba(0,174,234, 0.4);
         transform: translate3d(-3px, -3px, 3px);
-        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.33),
-          4px 4px 0 rgba(255, 255, 255, 0.11);
         -webkit-animation: pulse-primary-hover 1s ease-out;
         animation: pulse-primary-hover 1s ease-out;
       }
@@ -47,24 +41,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: rgba(0,174,234, 0.6);
       }
       
-      .screenshot-container {
+      .icon-container {
         position: relative;
         flex: 1;
         display: flex;
         justify-content: center;
         align-content: center;
+        background-color: var(--ui-header-color);
       }
-      .screenshot-container iron-image {
-        width: 100%;
-        position: absolute;
-        opacity: 0.3;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 1;
-      }
-      .screenshot-container iron-icon {
+      .icon-container iron-icon {
         width: auto;
         height: calc(100% - 16px);
         margin: auto;
@@ -74,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         -webkit-transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
       }
-      .container:hover .screenshot-container iron-icon {
+      .container:hover .icon-container iron-icon {
         transform: translate3d(-3px, -3px, 3px);
         /* -webkit-filter: drop-shadow(1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(3px 3px 0 var(--app-text-ghost-shadow));
         filter: drop-shadow(1px 1px 0 var(--app-text-drop-shadow)) drop-shadow(3px 3px 0 var(--app-text-ghost-shadow)); */
@@ -83,44 +68,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         position: relative;
         flex: 2;
       }
-      .info-container h3 {
+      .info-container p {
+        color: var(--app-text-primary-color);
+        text-shadow: 3px 3px 0 var(--app-text-ghost-shadow);
         margin: 8px;
       }
-      .favicon {
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 8px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
+      .info-container h5 {
+        margin: 8px;
+        font-weight: bold;
+        color: var(--app-secondary-color);
+        text-shadow: 3px 3px 0 rgba(255, 161, 0, 0.11);
       }
     </style>
 
     <div class="container">
-      <div class="screenshot-container">
-        <iron-image src="[[screenshot]]" sizing="cover"></iron-image>
-        <iron-icon icon="[[platform]]"></iron-icon>
+      <div class="icon-container">
+        <iron-icon icon="[[icon]]"></iron-icon>
       </div>
       <div class="info-container">
-        <h3>[[name]]</h3>
-        <iron-image class="favicon" src="[[favicon]]"></iron-image>
+        <p>[[primary]]</p>
+        <h5>[[secondary]]</h5>
       </div>
     </div>
 
   </template>
 
   <script>
-    class MyWorkGridItem extends Polymer.Element {
-      static get is() { return 'my-work-grid-item'; }
+    class GridItemWide extends Polymer.Element {
+      static get is() { return 'grid-item-wide'; }
       static get properties() {
         return {
-          name: String,
-          favicon: String,
-          platform: String,
-          screenshot: String
+          primary: String,
+          secondary: String,
+          icon: String
         };
       }
     }
 
-    window.customElements.define(MyWorkGridItem.is, MyWorkGridItem);
+    window.customElements.define(GridItemWide.is, GridItemWide);
   </script>
 </dom-module>
